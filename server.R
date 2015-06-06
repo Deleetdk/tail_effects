@@ -3,11 +3,9 @@
 # You can find out more about building applications with Shiny here:
 #
 # http://shiny.rstudio.com
-#
 
-library(shiny)
-library(ggplot2)
-library(DT)
+
+
 
 shinyServer(function(input, output) {
   
@@ -82,7 +80,7 @@ shinyServer(function(input, output) {
     t[2, 4] = (t[2, 1] / (t[2, 1] + t[2, 2])) * 100
     
     #render and return
-    t = datatable(t, options = list(dom = 't'))
+    t = DT::datatable(t, options = list(dom = 't'))
     return(t)
   })
 
