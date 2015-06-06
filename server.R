@@ -5,8 +5,6 @@
 # http://shiny.rstudio.com
 
 
-
-
 shinyServer(function(input, output) {
   
   reac_data = reactive({
@@ -42,10 +40,13 @@ shinyServer(function(input, output) {
 
   output$plot <- renderPlot({
     #plot
+    w = 1.5
     ggplot(reac_data(), aes(x = x)) +
-      geom_line(aes(x = x, y = A.den), color = "blue") +
-      geom_line(aes(x = x, y = B.den), color = "red") +
-      geom_vline(xintercept = input$threshold, linetype = "dashed")
+      geom_line(aes(x = x, y = A.den), color = "blue", size = w) +
+      geom_line(aes(x = x, y = B.den), color = "red", size = w) +
+      geom_vline(xintercept = input$threshold, linetype = "dashed", size = w, alpha = .7) +
+      xlab("Trait level") + ylab("Density")
+
   })
   
   output$table = renderDataTable({

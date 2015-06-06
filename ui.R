@@ -25,6 +25,12 @@ shinyUI(fluidPage(
 
     # Show a plot of the generated distribution
     mainPanel(
+      h3("Explanation"),
+      p(a(href = "http://web.archive.org/web/20140826113234/http://blogs.discovermagazine.com/gnxp/2011/11/on-the-real-possibility-of-human-differences/", "Tail effects"),
+        " are when there are large differences between groups at the extremes (tails) of distributions.",
+      "This happens when the distributions differ in either the mean or the standard deviation (or both), even when these differences are quite small.",
+      "Below we see a density plot of two normal distributions with different means as well as a threshold value (vertical line).",
+      "The table below the plot shows various summary statistics about the distributions with regards to the threshold."),
       plotOutput("plot"),
       dataTableOutput("table")
     )
