@@ -1,0 +1,17 @@
+{
+    "contents" : "\n# This is the user-interface definition of a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyUI(fluidPage(\n\n  # Application title\n  titlePanel(\"Tail effects\"),\n\n  # Sidebar with a slider input for number of bins\n  sidebarLayout(\n    sidebarPanel(\n      helpText(\"Set the desired group values below.\"),\n      numericInput(\"mean_A\", \"Blue group mean:\", value =  100),\n      numericInput(\"sd_A\", \"Blue group standard deviation:\", value =  15),\n      numericInput(\"mean_B\", \"Red group mean:\", value =  85),\n      numericInput(\"sd_B\", \"Red group standard deviation:\", value =  15),\n      numericInput(\"threshold\", \"Threshold:\", value =  130)\n    ),\n\n    # Show a plot of the generated distribution\n    mainPanel(\n      plotOutput(\"plot\"),\n      dataTableOutput(\"table\")\n    )\n  )\n))\n",
+    "created" : 1433614030194.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3994855469",
+    "id" : "96BE5EEE",
+    "lastKnownWriteTime" : 1433621662,
+    "path" : "Z:/Code/R/Shiny/tail_effects/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
