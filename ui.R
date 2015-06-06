@@ -32,7 +32,9 @@ shinyUI(fluidPage(
       "Below we see a density plot of two normal distributions with different means as well as a threshold value (vertical line).",
       "The table below the plot shows various summary statistics about the distributions with regards to the threshold."),
       plotOutput("plot"),
-      dataTableOutput("table")
+      dataTableOutput("table"),
+      p("Made by ", a(href="http://emilkirkegaard.dk", "Emil O. W. Kirkegaard"), " using ", a(href = "http://shiny.rstudio.com/", "Shiny for R"),
+        ". Source code available ", a(href = "https://github.com/Deleetdk/tail_effects", "here"), ".")
     )
   )
 ))

@@ -54,8 +54,8 @@ shinyServer(function(input, output) {
     colnames(t) = c("Blue Group", "Red group", "Ratio blue/red", "Percent blue")
     rownames(t) = c("Percent above threshold",
                    "Percent below threshold",
-                   "Mean of population above",
-                   "Mean of population below")
+                   "Mean of population above threshold",
+                   "Mean of population below threshold")
     ## insert values
     #percent above
     t[1, 1] = (1 - pnorm(input$threshold, mean = input$mean_A, sd = input$sd_A)) * 100
