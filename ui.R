@@ -18,8 +18,10 @@ shinyUI(fluidPage(
       helpText("Set the desired group values below."),
       numericInput("mean_A", "Blue group mean:", value =  100),
       numericInput("sd_A", "Blue group standard deviation:", value =  15),
+      numericInput("size_A", "Blue group population size:", value =  1),
       numericInput("mean_B", "Red group mean:", value =  85),
       numericInput("sd_B", "Red group standard deviation:", value =  15),
+      numericInput("size_B", "Red group population size:", value =  1),
       numericInput("threshold", "Threshold:", value =  130)
     ),
 

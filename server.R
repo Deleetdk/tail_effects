@@ -32,8 +32,8 @@ shinyServer(function(input, output) {
     #calculate x steps
     d$x = seq(plot.lower.limit, plot.upper.limit, length.out = 1000)
     #calculate densities
-    d$A.den = dnorm(d$x, mean = input$mean_A, sd = input$sd_A)
-    d$B.den = dnorm(d$x, mean = input$mean_B, sd = input$sd_B)
+    d$A.den = dnorm(d$x, mean = input$mean_A, sd = input$sd_A) * input$size_A
+    d$B.den = dnorm(d$x, mean = input$mean_B, sd = input$sd_B) * input$size_B
     #return
     return(d)
   })
@@ -64,8 +64,8 @@ shinyServer(function(input, output) {
     t[2, 1] = pnorm(input$threshold, mean = input$mean_A, sd = input$sd_A) * 100
     t[2, 2] = pnorm(input$threshold, mean = input$mean_B, sd = input$sd_B) * 100
     #ratio
-    t[1, 3] = t[1, 1] / t[1, 2]
-    t[2, 3] = t[2, 1] / t[2, 2]
+    t[1, 3] = (t[1, 1] * input$size_A) / (t[1, 2] * input$size_B)
+    t[2, 3] = (t[2, 1] * input$size_A) / (t[2, 2] * input$size_B)
     ## means of subgroups
     d = reac_data() #fetch data
     d.above = d[d$x > input$threshold, ]
@@ -77,8 +77,8 @@ shinyServer(function(input, output) {
     t[4, 1] = weighted.mean(d.below$x, d.below$A.den)
     t[4, 2] = weighted.mean(d.below$x, d.below$B.den)
     #Percent blue
-    t[1, 4] = (t[1, 1] / (t[1, 1] + t[1, 2])) * 100
-    t[2, 4] = (t[2, 1] / (t[2, 1] + t[2, 2])) * 100
+    t[1, 4] = (t[1, 1] * input$size_A / (t[1, 1] * input$size_A + t[1, 2] * input$size_B)) * 100
+    t[2, 4] = (t[2, 1] * input$size_A / (t[2, 1] * input$size_A + t[2, 2] * input$size_B)) * 100
     
     #render and return
     t = DT::datatable(t, options = list(dom = 't'))
