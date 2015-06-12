@@ -27,7 +27,6 @@ shinyUI(fluidPage(
 
     # Show a plot of the generated distribution
     mainPanel(
-      h3("Explanation"),
       p(a(href = "http://web.archive.org/web/20140826113234/http://blogs.discovermagazine.com/gnxp/2011/11/on-the-real-possibility-of-human-differences/", "Tail effects"),
         " are when there are large differences between groups at the extremes (tails) of distributions.",
       "This happens when the distributions differ in either the mean or the standard deviation (or both), even when these differences are quite small.",
@@ -36,8 +35,7 @@ shinyUI(fluidPage(
       "Try playing around with the numbers on the left and see how results change."),
       plotOutput("plot"),
       dataTableOutput("table"),
-      p("Made by ", a(href="http://emilkirkegaard.dk", "Emil O. W. Kirkegaard"), " using ", a(href = "http://shiny.rstudio.com/", "Shiny for R"),
-        ". Source code available ", a(href = "https://github.com/Deleetdk/tail_effects", "here"), ".")
+      HTML("Made by <a href='http://emilkirkegaard.dk'>Emil O. W. Kirkegaard</a> using <a href='http://shiny.rstudio.com/'/>Shiny</a> for <a href='http://en.wikipedia.org/wiki/R_%28programming_language%29'>R</a>. Source code available <a href='https://github.com/Deleetdk/tail_effects'>on Github</a>.")
     )
   )
 ))
