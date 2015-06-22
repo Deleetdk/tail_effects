@@ -34,7 +34,7 @@ shinyUI(fluidPage(
       "The table below the plot shows various summary statistics about the distributions with regards to the threshold.",
       "Try playing around with the numbers on the left and see how results change."),
       plotOutput("plot"),
-      dataTableOutput("table"),
+      DT::dataTableOutput("table"),
       HTML("Made by <a href='http://emilkirkegaard.dk'>Emil O. W. Kirkegaard</a> using <a href='http://shiny.rstudio.com/'/>Shiny</a> for <a href='http://en.wikipedia.org/wiki/R_%28programming_language%29'>R</a>. Source code available <a href='https://github.com/Deleetdk/tail_effects'>on Github</a>.")
     )
   )
